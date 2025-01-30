@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day Count</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .dark-mode {
+            background: #121212;
+            color: white;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        table {
+            margin: 20px auto;
+            border-collapse: collapse;
+            width: 100%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 1px;
+            text-align: center;
+        }
+
+        th {
+            background: #00b324;
+            color: white;
+        }
+
+        button {
+            margin: 20px 0;
+            position: relative;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            background: #00b324;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+
+        button:active {
+            background: #007f16;
+            transform: scale(0.95);
+        }
+
+        .green { color: green; }
+        .red { color: red; }
+
+        @media (max-width: 768px) {
+            table, button { width: 100%; font-size: 14px; }
+        }
+
+        /* @media (max-width: 480px) {
+            h1 { font-size: 20px; }
+            h3 { font-size: 18px; }
+            table { font-size: 12px; }
+            button { font-size: 16px; padding: 12px; }
+        } */
+        @media (max-width: 480px) {
+            p { font-size: 10px; }
+            h1 { font-size: 20px; }
+            h3 { font-size: 5x; }
+            table { font-size: 10px; }
+            button { font-size: 16px; padding: 12px;position:sticky }
+        }
+    </style>
+</head>
+
+<body>
+   
+    <button onclick="toggleTheme()">Toggle Dark/Light Mode</button>
+    
+    <div class="container" >
+    <div  style=" text-align: center;">
+        <h2>சேமிப்பு  உண்டியலுக்கான நோட்டீஸ்</h2>
+        <p>அன்புள்ள <b>தங்கை </b>அபிநயாவுக்கு,  <b>அண்ணன்</b> எழுதிக்கொள்தல், எனது அப்பாவி மனைவியிடம் ஏமாற்றி,
+            <b>எனது பத்து ரூபாய் நாணயம் சேமிப்பு உண்டியலில்</b> இருந்து எனக்கு தெரிவிக்கப்படுத்தாமல்
+            நீங்கள் 22/01/2025 அன்று 4 மணியளவில் வாங்கிய 50  பத்து ரூபாய் நாணயங்களுக்கான அபராதம்.
+            கீழே கொடுக்கப்பட்டுள்ள இருமுறைகளில் ஏதாவது ஒன்றை 
+                தேர்வு செய்து செலுத்தவும்,</p>
+        </div>
+        <p ><b>1).</b> 1 மாதத்துக்குள் 10 ரூபாய் 50 நாணயங்கள் செலுத்த வேண்டும் இல்லையென்றால் ஒவ்வொரு மாதத்திற்கும் 10 நாணயங்கள் என 
+            50 நாணயங்களுடன் சேர்க்கப்படும், நீங்கள் செலுத்தும் நாணயங்களுக்கான தொகையின் மதிப்பு அளவுக்கு GPay அல்லது
+            காகிதப் பணம் ஆக உங்களுக்கு திருப்பி செலுத்தப்படும்.
+        </p>
+        <table>
+            <tr>
+                <th>விளக்கம்</th>
+                <th>செலுத்திய நாணயங்கள்</th>
+                <th>மீதம் செலுத்த வேண்டிய நாணயங்கள்</th>
+            </tr>
+            <tr>
+                <td>
+                    <p>
+                    வாங்கிய நாணயங்கள் 50 மற்றும் அபராத நாணயங்கள் <span id="a"></span>
+                    மொத்தம் செலுத்த வேண்டிய நாணயங்கள் <span id="b"></span>
+                </p>
+                </td>
+                <td><h2 id="d"> </h2></td>
+                <td><h2 id="c"> </h2></td>
+            </tr>
+        </table>
+
+        <h3 style=" text-align: center;"> (அல்லது )</h3>
+        
+        <p style=" text-align: center;" ><b>2)</b>. அபராதம் ரூபாய் 1000 மற்றும் நீங்கள் வாங்கிய நாட்களில் இருந்து 50 ரூபாய் ஒவ்வொரு நாட்களுக்கும்  1000 ரூபாய்
+         உடன் சேர்க்கப்படும்.
+        </p>
+        
+        <table>
+            <tr>
+                <th>விளக்கம்</th>
+                <th>செலுத்திய தொகை</th>
+                <th>மீதம் செலுத்த வேண்டிய தொகை</th>
+            </tr>
+            <tr>
+                <td><p>ஆரம்ப அபராதம் ரூபாய் 1000.
+                    நீங்கள் வாங்கிய <span id="one"></span> நாட்களுக்கான அபராத தொகை <span id="two"></span>.</p>
+                    <p>மொத்தம் செலுத்த வேண்டிய தொகை <span id="three"></span>.</p>
+                </td>
+                <td><h2 id="f">0</h2></td>
+                <td><h2 id="g"> </h2></td>
+            </tr>
+        </table>
+        <button > <span id="time" style="margin-right: 10px; font-size: 1rem; font-weight: bold;"></span></button>
+    </div>
+
+    <script>
+         setInterval(() => {
+        document.getElementById("time").textContent = new Date().toLocaleString('en-GB', { 
+            day: '2-digit', month: '2-digit', year: 'numeric', 
+            hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true 
+        });
+    }, 1000);
+        const startDate = new Date("2025-01-22");
+        const today = new Date();
+        const dayCount = Math.floor((today - startDate) / 86400000);
+        const count = Math.floor(dayCount / 30);
+
+        // Update values
+        const values = {
+            a: count * 10,
+            b: (count * 10) + 50,
+            c: (count * 10) + 50,
+            d: 0,
+            one: dayCount,
+            two: dayCount * 50,
+            three: (dayCount * 50) + 1000,
+            g: (dayCount * 50) + 1000
+        };
+
+        Object.keys(values).forEach(id => document.getElementById(id).textContent = values[id]);
+
+        // Apply colors
+        document.getElementById("d").classList.add('green');
+        document.getElementById("c").classList.add('red');
+        document.getElementById("f").classList.add('green');
+        document.getElementById("g").classList.add('red');
+
+        function toggleTheme() {
+            document.body.classList.toggle("dark-mode");
+            const button = document.querySelector('button');
+            if (document.body.classList.contains('dark-mode')) {
+                button.textContent = "Switch to Light Mode";
+            } else {
+                button.textContent = "Switch to Dark Mode";
+            }
+        }
+    </script>
+</body>
+
+</html>
